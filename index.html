@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NAAM · El ecosistema que impulsa tu negocio</title>
+<meta name="description" content="Consultorios privados, sala de juntas y domicilio fiscal en Roma Sur, CDMX. Paga por hora o elige un plan mensual." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#0b2340;
+    --navy-800:#132f52;
+    --navy-700:#1c3d68;
+    --steel:#5f8aa3;
+    --steel-light:#9cb9c9;
+    --bg:#f2f4f7;
+    --card:#ffffff;
+    --text:#0f1e33;
+    --muted:#54657a;
+    --line:#e6ebf1;
+    --gold:#c9a24a;
+    --shadow: 0 20px 60px -30px rgba(11,35,64,.35);
+    --radius: 18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.02em;line-height:1.08;color:var(--navy-900);margin:0}
+  h1{font-size:clamp(2.4rem,5.5vw,4.6rem)}
+  h2{font-size:clamp(1.9rem,3.8vw,3rem);margin-bottom:2rem}
+  h3{font-size:1.35rem;letter-spacing:-.01em}
+  p{margin:.5rem 0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--steel);font-weight:600;margin-bottom:1rem;display:block;
+  }
+
+  /* NAV */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(242,244,247,.85);
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid rgba(230,235,241,.7);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:1280px;margin:0 auto;gap:24px;
+  }
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-mark{width:44px;height:44px;flex:0 0 auto;object-fit:contain;border-radius:6px}
+  .brand-text{display:flex;flex-direction:column;line-height:1}
+  .brand-text b{font-family:'Fraunces',serif;font-size:1.25rem;color:var(--navy-900);letter-spacing:.04em}
+  .brand-text small{font-size:.55rem;letter-spacing:.14em;color:var(--steel);text-transform:uppercase;margin-top:2px}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-weight:500;font-size:.95rem;color:var(--navy-800);transition:color .2s}
+  .nav-links a:hover{color:var(--steel)}
+  .nav-links a.btn-primary{color:#fff}
+  .nav-links a.btn-primary:hover{color:#fff}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:12px 22px;border-radius:12px;font-weight:600;font-size:.95rem;
+    border:1.5px solid transparent;cursor:pointer;transition:all .2s ease;
+    font-family:inherit;
+  }
+  .btn-primary{background:var(--navy-900);color:#fff}
+  .btn-primary:hover{background:var(--navy-800);transform:translateY(-1px)}
+  .btn-light{background:#fff;color:var(--navy-900);border-color:#fff}
+  .btn-light:hover{background:transparent;color:#fff;border-color:#fff}
+  .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+  .btn-outline:hover{background:#fff;color:var(--navy-900)}
+  .btn-ghost{background:transparent;color:var(--navy-900);border-color:var(--navy-900)}
+  .btn-ghost:hover{background:var(--navy-900);color:#fff}
+  .hamburger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--navy-900);margin:5px 0;border-radius:2px}
+
+  /* HERO */
+  .hero{
+    position:relative;overflow:hidden;
+    background:#0b2340;
+    color:#fff;isolation:isolate;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(11,35,64,.92) 0%,rgba(28,61,104,.75) 100%),
+               url('assets/consultorio-3.jpeg') center/cover no-repeat;
+    z-index:-1;
+  }
+  .hero-inner{
+    max-width:1200px;margin:0 auto;padding:96px 24px 120px;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;
+  }
+  .hero-tag{
+    display:inline-block;padding:8px 16px;border-radius:999px;
+    background:rgba(156,185,201,.15);color:var(--steel-light);
+    font-size:.72rem;letter-spacing:.2em;font-weight:600;text-transform:uppercase;
+    border:1px solid rgba(156,185,201,.2);margin-bottom:24px;
+  }
+  .hero h1{color:#fff;margin-bottom:20px}
+  .hero .lead{font-size:1.15rem;color:rgba(255,255,255,.82);max-width:520px;margin-bottom:32px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-visual{
+    position:relative;height:520px;border-radius:24px;overflow:hidden;
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.5);
+  }
+  .hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* SECTIONS */
+  section{padding:96px 0}
+  .section-head{max-width:720px;margin-bottom:56px}
+  .section-head p{color:var(--muted);font-size:1.08rem;margin-top:12px}
+
+  /* ESPACIOS */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{
+    background:var(--card);border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 6px 30px -20px rgba(11,35,64,.25);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .card-img{
+    aspect-ratio:4/3;background:#e6ebf1;
+    position:relative;overflow:hidden;
+  }
+  .card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .card:hover .card-img img{transform:scale(1.05)}
+  .card-body{padding:26px 26px 30px}
+  .card-body p{color:var(--muted);font-size:.98rem;margin:.6rem 0 1.1rem}
+  .price{color:var(--steel);font-weight:700;font-size:1.05rem}
+
+  /* PLANES */
+  .planes{background:linear-gradient(180deg,var(--bg) 0%,#e9edf3 100%)}
+  .grid-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+  .plan{
+    background:#fff;border-radius:var(--radius);padding:36px 32px 32px;
+    display:flex;flex-direction:column;position:relative;
+    box-shadow:0 6px 30px -20px rgba(11,35,64,.2);
+    border:1px solid var(--line);
+  }
+  .plan.featured{background:var(--navy-900);color:#fff;border-color:var(--navy-900);transform:scale(1.02)}
+  .plan.featured .eyebrow{color:var(--steel-light)}
+  .plan.featured h3{color:#fff}
+  .plan.featured ul li{color:rgba(255,255,255,.9)}
+  .plan.featured .price-big{color:#fff}
+  .plan-ribbon{
+    position:absolute;top:-1px;left:-1px;right:-1px;
+    background:var(--steel);color:#fff;text-align:center;
+    padding:10px 12px;border-radius:var(--radius) var(--radius) 0 0;
+    font-size:.72rem;letter-spacing:.14em;font-weight:700;text-transform:uppercase;
+  }
+  .plan.featured{padding-top:60px}
+  .price-big{
+    font-family:'Fraunces',serif;font-size:2.8rem;font-weight:600;
+    color:var(--navy-900);line-height:1;margin:14px 0 8px;
+  }
+  .price-big span{font-size:.85rem;color:var(--muted);font-weight:500;font-family:'Inter',sans-serif;margin-left:6px}
+  .plan.featured .price-big span{color:rgba(255,255,255,.7)}
+  .plan ul{list-style:none;padding:0;margin:20px 0 28px;flex:1}
+  .plan ul li{padding:8px 0;color:var(--text);font-size:.98rem;display:flex;gap:10px;align-items:flex-start}
+  .plan ul li::before{content:"✓";color:var(--steel);font-weight:700;flex-shrink:0}
+  .plan.featured ul li::before{color:var(--steel-light)}
+  .plan .btn{width:100%}
+  .planes-note{color:var(--muted);font-size:.9rem;margin-top:32px;text-align:center}
+
+  /* COTIZADOR */
+  .cotizador{background:var(--navy-900);color:#fff;position:relative;overflow:hidden}
+  .cotizador::before{
+    content:"";position:absolute;top:-100px;right:-100px;width:400px;height:400px;
+    background:radial-gradient(circle,rgba(95,138,163,.2),transparent 70%);border-radius:50%;
+  }
+  .cotizador h2{color:#fff}
+  .cotizador .eyebrow{color:var(--steel-light)}
+  .cotizador .lead{color:rgba(255,255,255,.75);font-size:1.08rem}
+  .quoter{
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:var(--radius);padding:40px;margin-top:40px;
+    display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;
+    position:relative;z-index:1;
+  }
+  .quoter-form label{display:block;font-size:.85rem;font-weight:600;color:var(--steel-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:.1em}
+  .quoter-form .field{margin-bottom:24px}
+  .quoter-form select,
+  .quoter-form input[type=number]{
+    width:100%;padding:14px 16px;border-radius:10px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+    color:#fff;font-family:inherit;font-size:1rem;
+    transition:border-color .2s;appearance:none;
+  }
+  .quoter-form select:focus,
+  .quoter-form input[type=number]:focus{outline:none;border-color:var(--steel-light)}
+  .quoter-form select option{background:var(--navy-900);color:#fff}
+  .hours-control{display:flex;align-items:center;gap:12px}
+  .hours-btn{
+    width:44px;height:44px;border-radius:10px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+    color:#fff;font-size:1.4rem;cursor:pointer;font-family:inherit;
+    display:flex;align-items:center;justify-content:center;transition:all .2s;
+  }
+  .hours-btn:hover{background:rgba(255,255,255,.15)}
+  .hours-control input{text-align:center;flex:1}
+  .quoter-result{
+    background:#fff;color:var(--navy-900);border-radius:14px;padding:32px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.4);
+  }
+  .quoter-result .label{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.15em;font-weight:600}
+  .quoter-result .total{
+    font-family:'Fraunces',serif;font-size:3.2rem;font-weight:600;color:var(--navy-900);
+    line-height:1;margin:8px 0 4px;
+  }
+  .quoter-result .total span{font-size:.9rem;color:var(--muted);font-family:'Inter',sans-serif;font-weight:500;margin-left:6px}
+  .quoter-result .breakdown{color:var(--muted);font-size:.92rem;padding:16px 0;border-bottom:1px solid var(--line);margin-bottom:20px}
+  .quoter-result .btn{width:100%;background:#25d366;color:#fff}
+  .quoter-result .btn:hover{background:#1fb457}
+
+  /* CONTACTO */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+  .map-card{
+    background:#fff;border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 6px 30px -20px rgba(11,35,64,.2);
+  }
+  .map-embed{aspect-ratio:4/3;background:#e6ebf1;position:relative}
+  .map-embed iframe{width:100%;height:100%;border:0;display:block}
+  .info-block{padding:24px 26px;border-top:1px solid var(--line)}
+  .info-block .row{display:flex;gap:14px;padding:10px 0;align-items:flex-start;font-size:.98rem}
+  .info-block .row:not(:last-child){border-bottom:1px solid var(--line)}
+  .info-block .icon{font-size:1.15rem;flex-shrink:0;margin-top:2px}
+  .info-block b{color:var(--navy-900)}
+  .info-block span.muted{color:var(--muted)}
+
+  .contact-form{
+    background:#fff;border-radius:var(--radius);padding:36px;
+    box-shadow:0 6px 30px -20px rgba(11,35,64,.2);
+  }
+  .contact-form h3{margin-bottom:24px;font-family:'Fraunces',serif;font-size:1.75rem}
+  .contact-form .field{margin-bottom:16px}
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea{
+    width:100%;padding:14px 16px;border-radius:10px;
+    background:#f7f9fb;border:1.5px solid var(--line);
+    font-family:inherit;font-size:1rem;color:var(--text);
+    transition:border-color .2s;
+  }
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus{outline:none;border-color:var(--steel)}
+  .contact-form textarea{min-height:110px;resize:vertical}
+  .contact-form .btn{width:100%;margin-top:8px}
+
+  /* FOOTER */
+  footer{background:var(--navy-900);color:rgba(255,255,255,.8);padding:56px 0 32px}
+  .footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+  footer h4{color:#fff;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px;font-weight:600}
+  footer a{color:rgba(255,255,255,.7);transition:color .2s;display:block;padding:4px 0}
+  footer a:hover{color:#fff}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:24px;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:.85rem;color:rgba(255,255,255,.5);flex-wrap:wrap;gap:12px;
+  }
+  .footer-brand p{color:rgba(255,255,255,.6);font-size:.95rem;max-width:340px;margin-top:12px}
+
+  /* WhatsApp float */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:100;
+    width:60px;height:60px;border-radius:50%;background:#25d366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px -8px rgba(37,211,102,.6);
+    transition:transform .2s;
+  }
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:32px;height:32px;fill:#fff}
+
+  /* Responsive */
+  @media (max-width:960px){
+    h2{font-size:2rem}
+    section{padding:64px 0}
+    .hero-inner{grid-template-columns:1fr;padding:56px 24px 72px;gap:40px}
+    .hero-visual{height:320px}
+    .grid-3,.grid-plans,.contact-grid,.footer-inner{grid-template-columns:1fr}
+    .plan.featured{transform:none}
+    .quoter{grid-template-columns:1fr;padding:28px}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;gap:12px;border-bottom:1px solid var(--line);box-shadow:0 10px 20px -10px rgba(0,0,0,.1)}
+    .nav-links.open{display:flex}
+    .nav-links .btn{width:100%;justify-content:center}
+    .hamburger{display:block}
+    .quoter-result .total{font-size:2.4rem}
+  }
+  @media (max-width:520px){
+    .container{padding:0 18px}
+    .hero-inner{padding:40px 18px 56px}
+    .hero .lead{font-size:1rem}
+    .quoter{padding:22px}
+    .contact-form,.map-card .info-block{padding:24px}
+    .plan{padding:28px 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="NAAM inicio">
+      <img class="brand-mark" src="assets/logo.jpeg" alt="Logo NAAM" />
+      <span class="brand-text"><b>NAAM</b><small>El ecosistema que impulsa tu negocio</small></span>
+    </a>
+    <button class="hamburger" aria-label="Menú" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#espacios">Espacios</a>
+      <a href="#planes">Planes</a>
+      <a href="#cotizador">Cotizador</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#" onclick="return openWhatsApp('Hola, me interesa reservar en NAAM.')" class="btn btn-primary">Reserva por WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-tag">El ecosistema que impulsa tu negocio</span>
+      <h1>Tu oficina lista,<br/>solo por el tiempo que la usas.</h1>
+      <p class="lead">Consultorios privados, sala de juntas y domicilio fiscal en un solo lugar, con recepción, café y atención de lunes a viernes. Paga por hora o elige un plan mensual.</p>
+      <div class="hero-ctas">
+        <a href="#cotizador" class="btn btn-light">Cotiza tu espacio</a>
+        <a href="#planes" class="btn btn-outline">Ver planes</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="assets/consultorio-3.jpeg" alt="Área común NAAM con bar, sala y TV" />
+    </div>
+  </div>
+</header>
+
+<!-- ESPACIOS -->
+<section id="espacios">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Los espacios</span>
+      <h2>Listos para trabajar desde el primer minuto</h2>
+      <p>Ambientes cuidados, iluminación natural y todo lo que necesitas para atender clientes, cerrar una junta o recibir a tu equipo.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-img"><img src="assets/consultorio-2.jpeg" alt="Consultorio privado NAAM" loading="lazy" /></div>
+        <div class="card-body">
+          <h3>Consultorios privados</h3>
+          <p>Escritorio, área de atención y luz natural. Ideales para consulta, terapia o asesoría.</p>
+          <div class="price">$150 MXN / hora</div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="assets/detalle-2.jpeg" alt="Sala de juntas para 8 personas" loading="lazy" /></div>
+        <div class="card-body">
+          <h3>Sala de juntas</h3>
+          <p>Hasta 8 personas, para presentaciones, juntas y videollamadas.</p>
+          <div class="price">$200 MXN / hora</div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="assets/recepcion-2.jpeg" alt="Recepción y área común de NAAM" loading="lazy" /></div>
+        <div class="card-body">
+          <h3>Recepción y amenidades</h3>
+          <p>Atención en recepción L–V de 9:00 a 18:00, café, agua y botana saludable incluidos.</p>
+          <div class="price">Incluido en tu visita</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section id="planes" class="planes">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Planes mensuales</span>
+      <h2>Un plan para cada etapa de tu negocio</h2>
+      <p>Elige el que se adapte a tu ritmo. Todos incluyen atención en recepción y flexibilidad para crecer contigo.</p>
+    </div>
+    <div class="grid-plans">
+      <div class="plan">
+        <span class="eyebrow">Domicilio fiscal</span>
+        <div class="price-big">$1,000<span>MXN / mes</span></div>
+        <ul>
+          <li>Dirección profesional para tu negocio</li>
+          <li>Recepción de mensajes</li>
+          <li>Recepción de paquetería</li>
+        </ul>
+        <a href="#" onclick="return openWhatsApp('Hola, quiero contratar el plan Domicilio Fiscal ($1,000/mes).')" class="btn btn-ghost">Lo quiero</a>
+      </div>
+      <div class="plan">
+        <span class="eyebrow">Plan 10 horas</span>
+        <div class="price-big">$4,100<span>MXN / mes</span></div>
+        <ul>
+          <li>10 hrs entre consultorios y sala de juntas</li>
+          <li>Domicilio fiscal incluido</li>
+          <li>Recepción de mensajes y paquetería</li>
+          <li>Café, agua y botana saludable</li>
+        </ul>
+        <a href="#" onclick="return openWhatsApp('Hola, quiero contratar el Plan 10 Horas ($4,100/mes).')" class="btn btn-ghost">Lo quiero</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-ribbon">★ El favorito · Doble de horas por $1,000 más</div>
+        <span class="eyebrow">Plan 20 horas</span>
+        <div class="price-big">$5,100<span>MXN / mes</span></div>
+        <ul>
+          <li>20 hrs entre consultorios y sala de juntas</li>
+          <li>Domicilio fiscal incluido</li>
+          <li>Recepción de mensajes y paquetería</li>
+          <li>Café, agua y botana saludable</li>
+        </ul>
+        <a href="#" onclick="return openWhatsApp('Hola, quiero contratar el Plan 20 Horas ($5,100/mes).')" class="btn btn-light">Lo quiero</a>
+      </div>
+    </div>
+    <p class="planes-note">Planes mensuales con contrato de 6 meses. Reservas con 1 día de anticipación, o al momento vía WhatsApp sujeto a disponibilidad.</p>
+  </div>
+</section>
+
+<!-- COTIZADOR -->
+<section id="cotizador" class="cotizador">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Cotizador por horas</span>
+      <h2>Calcula tu reserva en segundos</h2>
+      <p class="lead">Selecciona el tipo de espacio y las horas que necesitas. Enviamos tu cotización directo a WhatsApp para reservar al instante.</p>
+    </div>
+    <div class="quoter">
+      <div class="quoter-form">
+        <div class="field">
+          <label for="tipoEspacio">Tipo de espacio</label>
+          <select id="tipoEspacio" onchange="calcular()">
+            <option value="150">Consultorio privado — $150 / hora</option>
+            <option value="200">Sala de juntas — $200 / hora</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="horas">Horas</label>
+          <div class="hours-control">
+            <button type="button" class="hours-btn" onclick="cambiarHoras(-1)" aria-label="Menos">−</button>
+            <input type="number" id="horas" min="1" max="80" value="2" oninput="calcular()">
+            <button type="button" class="hours-btn" onclick="cambiarHoras(1)" aria-label="Más">+</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fecha">Fecha tentativa</label>
+          <input type="date" id="fecha" style="width:100%;padding:14px 16px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;font-family:inherit;font-size:1rem" onchange="calcular()">
+        </div>
+      </div>
+      <div class="quoter-result">
+        <div class="label">Total estimado</div>
+        <div class="total" id="totalMostrar">$300<span>MXN</span></div>
+        <div class="breakdown" id="desglose">2 horas × $150 · Consultorio privado</div>
+        <a href="#" id="waCotizador" class="btn" onclick="return enviarCotizacion()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Solicitar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Ubicación y contacto</span>
+      <h2>Ven a conocer NAAM</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="map-card">
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps?q=Av.%20Insurgentes%20Sur%20540%2C%20Roma%20Sur%2C%20Cuauhtémoc%2C%2006740%20Ciudad%20de%20México%2C%20CDMX&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación NAAM"></iframe>
+        </div>
+        <div class="info-block">
+          <div class="row"><span class="icon">📍</span><div><b>Dirección:</b> <span class="muted">Av. Insurgentes Sur 540, código 2, Roma Sur, Cuauhtémoc, 06740 Ciudad de México, CDMX</span></div></div>
+          <div class="row"><span class="icon">🕘</span><div><b>Recepción:</b> <span class="muted">Lunes a viernes · 9:00 a 18:00 hrs</span></div></div>
+          <div class="row"><span class="icon">📲</span><div><b>Reservas:</b> <span class="muted">Con 1 día de anticipación, vía WhatsApp sujeto a disponibilidad.</span></div></div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="return enviarContacto(event)">
+        <h3>Escríbenos</h3>
+        <div class="field"><input type="text" id="fNombre" placeholder="Nombre" required></div>
+        <div class="field"><input type="tel" id="fTelefono" placeholder="Teléfono" required></div>
+        <div class="field">
+          <select id="fInteres" required>
+            <option value="">Me interesa…</option>
+            <option>Domicilio fiscal</option>
+            <option>Plan 10 horas</option>
+            <option>Plan 20 horas</option>
+            <option>Consultorio por hora</option>
+            <option>Sala de juntas por hora</option>
+            <option>Solo tengo dudas</option>
+          </select>
+        </div>
+        <div class="field"><textarea id="fMensaje" placeholder="Cuéntanos qué necesitas"></textarea></div>
+        <button class="btn btn-primary" type="submit">Enviar por WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand" style="align-items:center">
+          <img class="brand-mark" src="assets/logo.jpeg" alt="Logo NAAM" style="width:48px;height:48px;background:#fff;padding:4px" />
+          <span class="brand-text"><b style="color:#fff">NAAM</b><small>El ecosistema que impulsa tu negocio</small></span>
+        </div>
+        <p>Consultorios, sala de juntas y domicilio fiscal en Roma Sur, CDMX. Diseñado para profesionales que valoran su tiempo.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="#espacios">Espacios</a>
+        <a href="#planes">Planes</a>
+        <a href="#cotizador">Cotizador</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="#" onclick="return openWhatsApp('Hola NAAM')">WhatsApp</a>
+        <a href="https://maps.google.com/?q=Av.+Insurgentes+Sur+540,+Roma+Sur" target="_blank" rel="noopener">Cómo llegar</a>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-top:8px;line-height:1.5">Av. Insurgentes Sur 540, código 2,<br>Roma Sur, CDMX 06740</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> NAAM. Todos los derechos reservados.</span>
+      <span>Roma Sur · Ciudad de México</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp floating -->
+<a href="#" class="wa-float" onclick="return openWhatsApp('Hola, quiero información sobre NAAM.')" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  const WHATSAPP_NUMBER = "525626473039";
+
+  function openWhatsApp(msg){
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank", "noopener");
+    return false;
+  }
+
+  // ------- COTIZADOR -------
+  const $tipo  = document.getElementById('tipoEspacio');
+  const $horas = document.getElementById('horas');
+  const $total = document.getElementById('totalMostrar');
+  const $desg  = document.getElementById('desglose');
+
+  function fmt(n){ return "$" + n.toLocaleString('es-MX'); }
+
+  function cambiarHoras(delta){
+    let h = parseInt($horas.value || "1", 10) + delta;
+    if (h < 1) h = 1;
+    if (h > 80) h = 80;
+    $horas.value = h;
+    calcular();
+  }
+
+  function calcular(){
+    const precio = parseInt($tipo.value, 10);
+    let h = parseInt($horas.value || "1", 10);
+    if (isNaN(h) || h < 1) h = 1;
+    if (h > 80) h = 80;
+    const total = precio * h;
+    const nombre = $tipo.options[$tipo.selectedIndex].text.split(' — ')[0];
+    $total.innerHTML = fmt(total) + '<span>MXN</span>';
+    $desg.textContent = `${h} ${h===1?'hora':'horas'} × ${fmt(precio)} · ${nombre}`;
+  }
+
+  function enviarCotizacion(){
+    const precio = parseInt($tipo.value, 10);
+    const h = parseInt($horas.value || "1", 10);
+    const total = precio * h;
+    const nombre = $tipo.options[$tipo.selectedIndex].text.split(' — ')[0];
+    const fecha = document.getElementById('fecha').value;
+    const fechaTxt = fecha ? `\n📅 Fecha tentativa: ${fecha}` : '';
+    const msg = `Hola NAAM 👋\nQuiero reservar:\n• Espacio: ${nombre}\n• Horas: ${h}\n• Total estimado: ${fmt(total)} MXN${fechaTxt}\n\n¿Está disponible?`;
+    return openWhatsApp(msg);
+  }
+
+  // ------- FORMULARIO CONTACTO -------
+  function enviarContacto(e){
+    e.preventDefault();
+    const n = document.getElementById('fNombre').value.trim();
+    const t = document.getElementById('fTelefono').value.trim();
+    const i = document.getElementById('fInteres').value;
+    const m = document.getElementById('fMensaje').value.trim();
+    const msg = `Hola NAAM, soy ${n} 👋\n📞 Teléfono: ${t}\n💼 Me interesa: ${i}${m ? `\n📝 ${m}` : ''}`;
+    return openWhatsApp(msg);
+  }
+
+  // Init
+  document.getElementById('year').textContent = new Date().getFullYear();
+  calcular();
+
+  // Close mobile menu on link click
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+</script>
+</body>
+</html>
